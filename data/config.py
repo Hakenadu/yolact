@@ -713,6 +713,13 @@ yolact_base_config = coco_base_config.copy({
     'use_semantic_segmentation_loss': True,
 })
 
+yolact_scratches_config = yolact_base_config.copy({
+    'name': 'yolact_scratches',
+          
+    'dataset': scratches_dataset,
+    'num_classes': len(scratches_dataset.class_names) + 1
+})
+
 yolact_im400_config = yolact_base_config.copy({
     'name': 'yolact_im400',
 
