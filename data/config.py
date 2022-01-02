@@ -54,8 +54,6 @@ COCO_LABEL_MAP = { 1:  1,  2:  2,  3:  3,  4:  4,  5:  5,  6:  6,  7:  7,  8:  8
                   74: 65, 75: 66, 76: 67, 77: 68, 78: 69, 79: 70, 80: 71, 81: 72,
                   82: 73, 84: 74, 85: 75, 86: 76, 87: 77, 88: 78, 89: 79, 90: 80}
 
-
-
 # ----------------------- CONFIG CLASS ----------------------- #
 
 class Config(object):
@@ -126,6 +124,18 @@ dataset_base = Config({
     # provide a map from category_id -> index in class_names + 1 (the +1 is there because it's 1-indexed).
     # If not specified, this just assumes category ids start at 1 and increase sequentially.
     'label_map': None
+})
+
+scratches_dataset = dataset_base.copy({
+    'name': 'Scratches',
+    
+    'train_images': './data/scratches/images/',
+    'train_info': './data/scratches/annotations/instances_default.json',
+          
+    'valid_images': './data/scratches/images/',
+    'valid_info': './data/scratches/annotations/instances_default.json',
+
+    'class_names': ('scratch')
 })
 
 coco2014_dataset = dataset_base.copy({
