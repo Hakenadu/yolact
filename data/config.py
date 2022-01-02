@@ -801,7 +801,7 @@ yolact_plus_base_config = yolact_base_config.copy({
     'discard_mask_area': 5*5,
 })
 
-yolact_scratches_config = yolact_plus_base_config.copy({
+yolact_plus_scratches_config = yolact_plus_base_config.copy({
     'name': 'yolact_plus_scratches',
           
     'dataset': scratches_dataset,
