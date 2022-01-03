@@ -803,8 +803,8 @@ yolact_plus_base_config = yolact_base_config.copy({
 
 yolact_plus_scratches_config = yolact_plus_base_config.copy({
     'name': 'yolact_plus_scratches',
-    'max_iter': 80,
-    'lr_steps': (40, 60),
+    'max_iter': 1000,
+    'lr_steps': (250, 500, 750),
     'dataset': scratches_dataset,
     'num_classes': len(scratches_dataset.class_names) + 1
 })
@@ -841,4 +841,3 @@ def set_cfg(config_name:str):
 def set_dataset(dataset_name:str):
     """ Sets the dataset of the current config. """
     cfg.dataset = eval(dataset_name)
-    
