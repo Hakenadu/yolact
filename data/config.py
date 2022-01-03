@@ -135,7 +135,7 @@ scratches_dataset = dataset_base.copy({
     'valid_images': './data/scratches/images/',
     'valid_info': './data/scratches/annotations/instances_default.json',
 
-    'class_names': ('scratch')
+    'class_names': ('scratch',)
 })
 
 coco2014_dataset = dataset_base.copy({
@@ -803,7 +803,8 @@ yolact_plus_base_config = yolact_base_config.copy({
 
 yolact_plus_scratches_config = yolact_plus_base_config.copy({
     'name': 'yolact_plus_scratches',
-          
+    'max_iter': 80,
+    'lr_steps': (40, 60),
     'dataset': scratches_dataset,
     'num_classes': len(scratches_dataset.class_names) + 1
 })
