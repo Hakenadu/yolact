@@ -126,6 +126,18 @@ dataset_base = Config({
     'label_map': None
 })
 
+carparts_dataset = dataset_base.copy({
+    'name': 'Carparts',
+    
+    'train_images': './data/carparts/images/',
+    'train_info': './data/carparts/annotations/instances_default.json',
+          
+    'valid_images': './data/carparts/images/',
+    'valid_info': './data/carparts/annotations/instances_default.json',
+
+    'class_names': ('bliplate','backside','door','fliplate','frontside','headlight','leftmirror','leftside','rightmirror','rightside','roofside','wheel','window')
+})
+
 scratches_dataset = dataset_base.copy({
     'name': 'Scratches',
     
@@ -799,6 +811,14 @@ yolact_plus_base_config = yolact_base_config.copy({
     'rescore_mask': True,
 
     'discard_mask_area': 5*5,
+})
+
+yolact_plus_carparts_config = yolact_plus_base_config.copy({
+    'name': 'yolact_plus_carparts',
+    'max_iter': 1000,
+    'lr_steps': (250, 500, 750),
+    'dataset': carparts_dataset,
+    'num_classes': len(carparts_dataset.class_names) + 1
 })
 
 yolact_plus_scratches_config = yolact_plus_base_config.copy({
